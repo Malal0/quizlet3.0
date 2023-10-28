@@ -1,11 +1,12 @@
 import { decode } from 'html-entities';
 import { randomizedAnswers } from '../functions'
+import QABtn from './QABtn'
 import '../styles/qblock.css';
 
-export default function QuistionBlock(props) {
+export default function QBlock(props) {
     const { category, correct_answer, difficulty, incorrect_answers, question, type } = props;
     const allAnswers = randomizedAnswers([correct_answer, ...incorrect_answers]);
-    const answersElements = allAnswers.map(answer => <li><button>{decode(answer)}</button></li>);
+    const answersElements = allAnswers.map(answer => <li><QABtn {...decode(answer)} /></li>);
 
     return (
         <div className='q-block-el'>

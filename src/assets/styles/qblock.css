@@ -25,6 +25,7 @@
 }
 .q-block-el .content .answers-list li button:hover {
   background-color: #FFF;
+  filter: contrast(0.9);
 }
 .q-block-el .content .answers-list li button:active {
   transform: translateY(4px);

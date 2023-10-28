@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import QuestionBlock from './Question-block';
+import QBlock from './QBlock';
 
 const apiLink = 'https://opentdb.com/api.php?amount=5&category=19&difficulty=easy&type=multiple';
 const hardDataObj = {
@@ -71,7 +71,7 @@ const hardDataObj = {
 export default function QuizPage() {
     const [quizApiDataObj, setQuizApiDataObj] = useState(() => hardDataObj);
     const [quizApiDataArray, setQuizApiDataArray] = useState(() => quizApiDataObj.results);
-    const questionsElements = quizApiDataArray.map(obj => <QuestionBlock key={obj.question} {...obj} />);
+    const questionsElements = quizApiDataArray.map(obj => <QBlock key={obj.question} {...obj} />);
 
     useEffect(() => {
         // runs on first render
