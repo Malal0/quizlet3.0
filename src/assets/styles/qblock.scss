@@ -1,0 +1,40 @@
+.q-block-el {
+    // border: 1px solid grey;
+    padding-block: 2em;
+
+    .content {
+        .question {
+            color: var(--main--c);
+            margin-bottom: 1em;
+        }
+
+        .answers-list {
+            display: grid;
+            grid-template: auto auto / repeat(2, 1fr);
+            gap: 1em;
+            list-style-type: none;
+
+            li {
+                width: auto;
+
+                button {
+                    background-color: transparent;
+                    border: 2px solid var(--main--c);
+                    border-radius: .5em;
+                    padding: .25em 1em;
+                    text-align: center;
+                    cursor: pointer;
+                    width: 100%;
+
+                    &:hover {
+                        background-color: #FFF;
+                    }
+
+                    &:active {
+                        transform: translateY(4px);
+                    }
+                }
+            }
+        }
+    }
+}

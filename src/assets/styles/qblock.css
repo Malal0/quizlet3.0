@@ -1,0 +1,31 @@
+.q-block-el {
+  padding-block: 2em;
+}
+.q-block-el .content .question {
+  color: var(--main--c);
+  margin-bottom: 1em;
+}
+.q-block-el .content .answers-list {
+  display: grid;
+  grid-template: auto auto/repeat(2, 1fr);
+  gap: 1em;
+  list-style-type: none;
+}
+.q-block-el .content .answers-list li {
+  width: auto;
+}
+.q-block-el .content .answers-list li button {
+  background-color: transparent;
+  border: 2px solid var(--main--c);
+  border-radius: 0.5em;
+  padding: 0.25em 1em;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+.q-block-el .content .answers-list li button:hover {
+  background-color: #FFF;
+}
+.q-block-el .content .answers-list li button:active {
+  transform: translateY(4px);
+}

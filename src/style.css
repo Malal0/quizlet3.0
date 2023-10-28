@@ -1,14 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: inherit;
 }
 
 :root {
     --width: calc(100% - 40px);
+    --main--bg: #E5E8F5;
+    --main--c: #293264;
+    --button--bg: #4D5B9E;
 }
 
 .container {
     width: clamp(100px, var(--width), 1200px);
     margin-inline: auto;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.quizpage {
+    padding-block: 2em;
+}
+
+.main-btn {
+    background-color: var(--button--bg);
+    border: none;
+    border-radius: .5em;
+    color: hsl(0, 0%, 94%);
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    letter-spacing: .05em;
+    margin: auto;
+    padding: 1em 2em;
+}
+
+.main-btn:hover {
+    background-color: hsl(230, 34%, 40%);
+    color: #FFF;
 }

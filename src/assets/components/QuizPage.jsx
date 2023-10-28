@@ -85,10 +85,10 @@ export default function QuizPage() {
     console.log('rendered');
 
     return (
-        <div>
-            <h2>QuizPage</h2>
+        <div className='quizpage'>
+            <h2 style={{ textAlign: 'center' }}>QuizPage</h2>
             {questionsElements}
-            <button>Check Answers</button>
+            <button className='main-btn'>Check Answers</button>
         </div>
     );
 }
