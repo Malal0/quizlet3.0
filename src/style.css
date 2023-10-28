@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --width: calc(100% - 40px);
+}
+
+.container {
+    width: clamp(100px, var(--width), 1200px);
+    margin-inline: auto;
+}

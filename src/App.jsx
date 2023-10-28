@@ -7,16 +7,18 @@ function App() {
 
   return (
     <>
-      <h1>Quizlet</h1>
-      <ul>
-        <li>import quiz data</li>
-        <li>make question block component</li>
-        <li>make question</li>
-        <li>make answer components</li>
-        <li>make css</li>
-        <li>make submit button</li>
-      </ul>
-      <QuizPage />
+      <div className='container'>
+        <h1>Quizlet</h1>
+        <ul>
+          <li>import quiz data</li>
+          <li>make question block component</li>
+          <li>make question</li>
+          <li>make answer components</li>
+          <li>make css</li>
+          <li>make submit button</li>
+        </ul>
+        <QuizPage />
+      </div>
     </>
   )
 }

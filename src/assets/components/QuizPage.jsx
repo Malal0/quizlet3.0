@@ -79,7 +79,7 @@ export default function QuizPage() {
             .then(data => setQuizApiDataObj(data));
     }, []);
 
-    const questionsElements = quizApiDataArray.map(obj => <QuestionBlock {...obj} />);
+    const questionsElements = quizApiDataArray.map(obj => <QuestionBlock key={obj.question} {...obj} />);
     console.log('rendered');
 
     return (
