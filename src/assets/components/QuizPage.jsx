@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import QuestionBlock from './Question-block';
 
 const apiLink = 'https://opentdb.com/api.php?amount=5&category=19&difficulty=easy&type=multiple';
 const hardDataObj = {
@@ -69,7 +70,7 @@ const hardDataObj = {
 
 export default function QuizPage() {
     const [quizApiDataObj, setQuizApiDataObj] = useState(() => hardDataObj);
-    const [quizApiDataArray, setQuizApiDataArray] = useState(quizApiDataObj.results);
+    const [quizApiDataArray, setQuizApiDataArray] = useState(() => quizApiDataObj.results);
 
     useEffect(() => {
         // runs on first render
@@ -78,19 +79,14 @@ export default function QuizPage() {
             .then(data => setQuizApiDataObj(data));
     }, []);
 
-    console.log(quizApiDataArray);
-    // console.log('rendered');
-    const { category, correct_answer, difficulty, incorrect_answers, question, type } = quizApiDataArray[0];
+    const questionsElements = quizApiDataArray.map(obj => <QuestionBlock {...obj} />);
+    console.log('rendered');
 
     return (
         <div>
             <h2>QuizPage</h2>
-            <p>category: {category}</p>
-            <p>correct answer: {correct_answer}</p>
-            <p>difficulty: {difficulty}</p>
-            <p>incorrect answers: {incorrect_answers.join(', ')}</p>
-            <p>question: {question}</p>
-            <p>type: {type}</p>
+            {questionsElements}
+            <button>Check Answers</button>
         </div>
     );
 }
