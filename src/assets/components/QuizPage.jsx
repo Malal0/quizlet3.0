@@ -71,15 +71,17 @@ const hardDataObj = {
 export default function QuizPage() {
     const [quizApiDataObj, setQuizApiDataObj] = useState(() => hardDataObj);
     const [quizApiDataArray, setQuizApiDataArray] = useState(() => quizApiDataObj.results);
+    const questionsElements = quizApiDataArray.map(obj => <QuestionBlock key={obj.question} {...obj} />);
 
     useEffect(() => {
         // runs on first render
         fetch(apiLink)
             .then(res => res.json())
             .then(data => setQuizApiDataObj(data));
+
+        console.log('api called');
     }, []);
 
-    const questionsElements = quizApiDataArray.map(obj => <QuestionBlock key={obj.question} {...obj} />);
     console.log('rendered');
 
     return (
