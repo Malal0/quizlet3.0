@@ -72,14 +72,14 @@ const hardDataObj = {
 export default function QuizPage() {
     const [quizApiDataObj, setQuizApiDataObj] = useState(() => mutateData(hardDataObj));
     const [quizApiDataArray, setQuizApiDataArray] = useState(() => quizApiDataObj.results);
-    const questionsElements = quizApiDataArray.map(obj => <QBlock key={obj.question} {...obj} handleClick={handleAnswerClick} />);
+    const [isQuizOver, setIsQuizOver] = useState(() => false);
+    const questionsElements = quizApiDataArray.map(obj => <QBlock key={obj.id} {...obj} handleClick={handleAnswerClick} isQuizOver={isQuizOver} />);
 
     useEffect(() => {
         // runs on first render
         fetch(apiLink)
             .then(res => res.json())
             .then(data => setQuizApiDataObj(mutateData(data)));
-
         // console.log('api called');
     }, []);
 
@@ -89,8 +89,23 @@ export default function QuizPage() {
     }
 
     function handleSubmit() {
-        console.log('check the answers');
+        // const everyAnswerCorrect = quizApiDataArray.every(obj => obj.selected === obj.correct_answer);
+        const everyQuestionAnswered = quizApiDataArray.every(obj => obj.selected);
+        if (everyQuestionAnswered) {
+            setIsQuizOver(true);
+        }
     }
+
+    function resetGame() {
+        console.log('reset game');
+        setIsQuizOver(false);
+        fetch(apiLink)
+            .then(res => res.json())
+            .then(data => setQuizApiDataObj(mutateData(data)))
+            .then(() => setQuizApiDataArray(quizApiDataObj.results));
+    }
+
+    const answersCorrect = quizApiDataArray.filter(obj => obj.correct_answer === obj.selected).length;
 
     console.log(quizApiDataArray);
 
@@ -98,7 +113,14 @@ export default function QuizPage() {
         <div className='quizpage'>
             <h2 style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '3em' }}>QuizPage</h2>
             {questionsElements}
-            <button className='main-btn' onClick={handleSubmit}>Check Answers</button>
+            {
+                isQuizOver ?
+                    <div className='results'>
+                        <p>You scored {answersCorrect} / {quizApiDataArray.length} correct answers</p>
+                        <button className='main-btn' onClick={resetGame}>Play again</button>
+                    </div> :
+                    <button className='main-btn' onClick={handleSubmit} disabled={!quizApiDataArray.every(obj => obj.selected)}>Check Answers</button>
+            }
         </div>
     );
 }

@@ -44,3 +44,11 @@ body {
     background-color: hsl(230, 34%, 40%);
     color: #FFF;
 }
+
+.results {
+    text-align: center;
+}
+
+.results .main-btn {
+    margin-top: 1em;
+}

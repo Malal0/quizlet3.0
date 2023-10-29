@@ -2,12 +2,13 @@ import QABtn from './QABtn'
 import '../styles/qblock.css';
 
 export default function QBlock(props) {
-    const { all_answers, category, correct_answer, difficulty, id, incorrect_answers, question, selected, type, handleClick } = props;
+    const { all_answers, category, correct_answer, difficulty, id, incorrect_answers, question, selected, type, handleClick, isGameOver } = props;
     const answersElements = all_answers.map(answer => <li>
         <QABtn
             answerValue={answer}
             selected={selected}
             handleClick={() => handleClick(id, answer)}
+            key={answer}
         />
     </li>);
 
