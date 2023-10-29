@@ -84,12 +84,12 @@ export default function QuizPage() {
     }, []);
 
     function handleAnswerClick(id, value) {
-
-        // if the id === obj.id
-        // selected === value
-
-        console.log(`id: ${id}, value: ${value}`);
+        // console.log(`id: ${id}, value: ${value}`);
         setQuizApiDataArray(prevArr => prevArr.map(obj => obj.id === id ? { ...obj, selected: value } : obj));
+    }
+
+    function handleSubmit() {
+        console.log('check the answers');
     }
 
     console.log(quizApiDataArray);
@@ -98,7 +98,7 @@ export default function QuizPage() {
         <div className='quizpage'>
             <h2 style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '3em' }}>QuizPage</h2>
             {questionsElements}
-            <button className='main-btn'>Check Answers</button>
+            <button className='main-btn' onClick={handleSubmit}>Check Answers</button>
         </div>
     );
 }
