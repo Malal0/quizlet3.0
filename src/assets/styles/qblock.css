@@ -13,12 +13,14 @@
 }
 .q-block-el .content .answers-list li {
   width: auto;
+  pointer-events: none;
 }
 .q-block-el .content .answers-list li button {
   background-color: transparent;
   border: 2px solid var(--main--c);
   border-radius: 0.5em;
   padding: 0.25em 1em;
+  pointer-events: all;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -29,4 +31,8 @@
 }
 .q-block-el .content .answers-list li button:active {
   transform: translateY(4px);
+}
+.q-block-el .content .answers-list li button.selected {
+  background-color: #D6DBF5;
+  border-color: #D6DBF5;
 }

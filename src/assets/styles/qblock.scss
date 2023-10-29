@@ -16,12 +16,14 @@
 
             li {
                 width: auto;
+                pointer-events: none;
 
                 button {
                     background-color: transparent;
                     border: 2px solid var(--main--c);
                     border-radius: .5em;
                     padding: .25em 1em;
+                    pointer-events: all;
                     text-align: center;
                     cursor: pointer;
                     width: 100%;
@@ -33,6 +35,11 @@
 
                     &:active {
                         transform: translateY(4px);
+                    }
+
+                    &.selected {
+                        background-color: #D6DBF5;
+                        border-color: #D6DBF5;
                     }
                 }
             }

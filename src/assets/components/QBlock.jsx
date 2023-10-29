@@ -3,12 +3,18 @@ import '../styles/qblock.css';
 
 export default function QBlock(props) {
     const { all_answers, category, correct_answer, difficulty, id, incorrect_answers, question, selected, type, handleClick } = props;
-    const answersElements = all_answers.map(answer => <li><QABtn answerValue={answer} handleClick={handleClick} /></li>);
+    const answersElements = all_answers.map(answer => <li>
+        <QABtn
+            answerValue={answer}
+            selected={selected}
+            handleClick={() => handleClick(id, answer)}
+        />
+    </li>);
 
     return (
         <div className='q-block-el'>
             {
-                true &&
+                false &&
                 <div style={{ backgroundColor: '#000', color: '#FFF' }}>
                     <h2>Quistion Block</h2>
                     <p>all answers: {all_answers.join(', ')}</p>

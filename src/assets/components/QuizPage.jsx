@@ -83,11 +83,16 @@ export default function QuizPage() {
         // console.log('api called');
     }, []);
 
-    function handleAnswerClick() {
-        console.log('Hello');
+    function handleAnswerClick(id, value) {
+
+        // if the id === obj.id
+        // selected === value
+
+        console.log(`id: ${id}, value: ${value}`);
+        setQuizApiDataArray(prevArr => prevArr.map(obj => obj.id === id ? { ...obj, selected: value } : obj));
     }
 
-    // console.log(quizApiDataObj);
+    console.log(quizApiDataArray);
 
     return (
         <div className='quizpage'>

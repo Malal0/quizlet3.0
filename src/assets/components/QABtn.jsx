@@ -1,5 +1,5 @@
 export default function QBlock(props) {
-    const { answerValue, handleClick } = props;
+    const { answerValue, selected, handleClick } = props;
 
     // classes for buttons
     // normal / initial - doesn't need special class
@@ -8,7 +8,11 @@ export default function QBlock(props) {
     //incorrect
     //null
 
+    if (answerValue === selected) {
+        console.log(`this is selected: ${answerValue}`);
+    }
+
     return (
-        <button onClick={handleClick}>{answerValue}</button>
+        <button className={answerValue === selected ? "selected" : ""} onClick={handleClick}>{answerValue}</button>
     );
 }
