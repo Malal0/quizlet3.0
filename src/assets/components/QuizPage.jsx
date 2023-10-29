@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import QBlock from './QBlock';
+import { mutateData } from '../functions'
 
 const apiLink = 'https://opentdb.com/api.php?amount=5&category=19&difficulty=easy&type=multiple';
 const hardDataObj = {
@@ -69,24 +70,28 @@ const hardDataObj = {
 };
 
 export default function QuizPage() {
-    const [quizApiDataObj, setQuizApiDataObj] = useState(() => hardDataObj);
+    const [quizApiDataObj, setQuizApiDataObj] = useState(() => mutateData(hardDataObj));
     const [quizApiDataArray, setQuizApiDataArray] = useState(() => quizApiDataObj.results);
-    const questionsElements = quizApiDataArray.map(obj => <QBlock key={obj.question} {...obj} />);
+    const questionsElements = quizApiDataArray.map(obj => <QBlock key={obj.question} {...obj} handleClick={handleAnswerClick} />);
 
     useEffect(() => {
         // runs on first render
         fetch(apiLink)
             .then(res => res.json())
-            .then(data => setQuizApiDataObj(data));
+            .then(data => setQuizApiDataObj(mutateData(data)));
 
-        console.log('api called');
+        // console.log('api called');
     }, []);
 
-    console.log('rendered');
+    function handleAnswerClick() {
+        console.log('Hello');
+    }
+
+    // console.log(quizApiDataObj);
 
     return (
         <div className='quizpage'>
-            <h2 style={{ textAlign: 'center' }}>QuizPage</h2>
+            <h2 style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '3em' }}>QuizPage</h2>
             {questionsElements}
             <button className='main-btn'>Check Answers</button>
         </div>

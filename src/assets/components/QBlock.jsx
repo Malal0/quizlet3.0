@@ -1,30 +1,29 @@
-import { decode } from 'html-entities';
-import { randomizedAnswers } from '../functions'
 import QABtn from './QABtn'
 import '../styles/qblock.css';
 
 export default function QBlock(props) {
-    const { category, correct_answer, difficulty, incorrect_answers, question, type } = props;
-    const allAnswers = randomizedAnswers([correct_answer, ...incorrect_answers]);
-    const answersElements = allAnswers.map(answer => <li><QABtn {...decode(answer)} /></li>);
+    const { all_answers, category, correct_answer, difficulty, id, incorrect_answers, question, selected, type, handleClick } = props;
+    const answersElements = all_answers.map(answer => <li><QABtn answerValue={answer} handleClick={handleClick} /></li>);
 
     return (
         <div className='q-block-el'>
             {
-                false &&
+                true &&
                 <div style={{ backgroundColor: '#000', color: '#FFF' }}>
                     <h2>Quistion Block</h2>
+                    <p>all answers: {all_answers.join(', ')}</p>
+                    <p>id: {id}</p>
+                    <p>selected: {selected}</p>
                     <p>category: {category}</p>
                     <p>type: {type}</p>
                     <p>difficulty: {difficulty}</p>
                     <p>correct answer: {correct_answer}</p>
                     <p>incorrect answers: {incorrect_answers.join(', ')}</p>
                     <p>question: {question}</p>
-                    <p>array order: {allAnswers.join(', ')}</p>
                 </div>
             }
             <div className='content'>
-                <h2 className='question'>{decode(question)}</h2>
+                <h2 className='question'>{question}</h2>
                 <ul className='answers-list'>{answersElements}</ul>
             </div>
         </div>

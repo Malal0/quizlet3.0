@@ -1,5 +1,5 @@
 export default function QBlock(props) {
-    const { answer } = props;
+    const { answerValue, handleClick } = props;
 
     // classes for buttons
     // normal / initial - doesn't need special class
@@ -9,6 +9,6 @@ export default function QBlock(props) {
     //null
 
     return (
-        <button>{answer}</button>
+        <button onClick={handleClick}>{answerValue}</button>
     );
 }
