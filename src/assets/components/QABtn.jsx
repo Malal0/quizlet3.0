@@ -1,5 +1,5 @@
 export default function QBlock(props) {
-    const { answerValue, selected, handleClick, isGameOver } = props;
+    const { answerValue, selected, handleClick, quizOver } = props;
 
     // classes for buttons
     // normal / initial - doesn't need special class
@@ -10,7 +10,7 @@ export default function QBlock(props) {
 
     function handleClasses() {
         /*
-        if game is over && is selected
+        if Quiz is over && is selected
             if is correct turn green
             else turn red
         else
@@ -20,6 +20,6 @@ export default function QBlock(props) {
     }
 
     return (
-        <button className={answerValue === selected ? "selected" : ""} onClick={handleClick} disabled={!isGameOver}>{answerValue}</button>
+        <button className={answerValue === selected ? "selected" : ""} onClick={handleClick} disabled={quizOver}>{answerValue}</button>
     );
 }

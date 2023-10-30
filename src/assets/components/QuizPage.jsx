@@ -73,7 +73,7 @@ export default function QuizPage() {
     const [quizApiDataObj, setQuizApiDataObj] = useState(() => mutateData(hardDataObj));
     const [quizApiDataArray, setQuizApiDataArray] = useState(() => quizApiDataObj.results);
     const [isQuizOver, setIsQuizOver] = useState(() => false);
-    const questionsElements = quizApiDataArray.map(obj => <QBlock key={obj.id} {...obj} handleClick={handleAnswerClick} isQuizOver={isQuizOver} />);
+    const questionsElements = quizApiDataArray.map(obj => <QBlock key={obj.id} {...obj} handleClick={handleAnswerClick} quizOver={isQuizOver} />);
 
     useEffect(() => {
         // runs on first render
