@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import QBlock from './QBlock';
 import { mutateData } from '../functions'
 
-const apiLink = 'https://opentdb.com/api.php?amount=5&category=19&difficulty=easy&type=multiple';
+const apiLink = 'https://opentdb.com/api.php?amount=7&category=19&difficulty=easy&type=multiple';
 const hardDataObj = {
     "response_code": 0,
     "results": [
@@ -78,8 +78,18 @@ export default function QuizPage() {
     useEffect(() => {
         // runs on first render
         fetch(apiLink)
-            .then(res => res.json())
-            .then(data => setQuizApiDataObj(mutateData(data)));
+            // .then(res => res.json())
+            // .then(data => setQuizApiDataObj(mutateData(data)));
+            .then(res => {
+                console.log(res);
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                const newData = mutateData(data);
+                setQuizApiDataObj(newData);
+                setQuizApiDataArray(newData.results);
+            })
         // console.log('api called');
     }, []);
 
@@ -106,8 +116,6 @@ export default function QuizPage() {
     }
 
     const answersCorrect = quizApiDataArray.filter(obj => obj.correct_answer === obj.selected).length;
-
-    console.log(quizApiDataArray);
 
     return (
         <div className='quizpage'>
