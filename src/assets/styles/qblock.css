@@ -36,3 +36,17 @@
   background-color: #D6DBF5;
   border-color: #D6DBF5;
 }
+.q-block-el .content .answers-list li button:disabled {
+  border-color: #8F94AF;
+  color: #8F94AF;
+}
+.q-block-el .content .answers-list li button:disabled.selected {
+  background-color: #94D7A2;
+  border-color: #94D7A2;
+  color: var(--main--c);
+}
+.q-block-el .content .answers-list li button:disabled.selected.incorrect {
+  background-color: #F8BCBC;
+  border-color: #F8BCBC;
+  color: #8F94AF;
+}

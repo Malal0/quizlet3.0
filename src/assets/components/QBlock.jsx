@@ -6,6 +6,7 @@ export default function QBlock(props) {
     const answersElements = all_answers.map(answer => <li>
         <QABtn
             answerValue={answer}
+            correctAnswerValue={correct_answer}
             selected={selected}
             handleClick={() => handleClick(id, answer)}
             key={answer}
