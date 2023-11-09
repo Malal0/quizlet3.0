@@ -12,20 +12,12 @@ export default function QBlock(props) {
         const isSelected = answerValue === selected;
         const isIncorrect = correctAnswerValue === answerValue;
         const classes = [];
-        /*
-        if Quiz is over && is selected
-            if is correct turn green
-            else turn red
-        else
-            add disabled class
-        */
+        
         if (isSelected)
             classes.push('selected')
 
         if (isIncorrect)
             classes.push('incorrect')
-
-        console.log(classes.join(' '));
 
         return classes.join(' ');
     }
