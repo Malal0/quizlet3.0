@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import QBlock from './QBlock';
 import { mutateData } from '../functions'
 
-const apiLink = 'https://opentdb.com/api.php?amount=3&category=19&difficulty=easy&type=multiple';
+const apiLink = 'https://opentdb.com/api.php?amount=5&category=19&difficulty=easy&type=multiple';
 const hardDataObj = {
     "response_code": 0,
     "results": [

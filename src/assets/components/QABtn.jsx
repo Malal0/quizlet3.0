@@ -12,11 +12,11 @@ export default function QBlock(props) {
         const isSelected = answerValue === selected;
         const isIncorrect = correctAnswerValue === answerValue;
         const classes = [];
-        
+
         if (isSelected)
             classes.push('selected')
 
-        if (isIncorrect)
+        if (!isIncorrect)
             classes.push('incorrect')
 
         return classes.join(' ');
