@@ -117,7 +117,7 @@ export default function QuizPage() {
 
     return (
         <div className='quizpage'>
-            <h2 style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '3em' }}>QuizPage</h2>
+            <h2 className='title' style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '3em' }}>QuizPage</h2>
             {questionsElements}
             {
                 isQuizOver ?

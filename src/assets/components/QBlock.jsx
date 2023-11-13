@@ -1,5 +1,5 @@
 import QABtn from './QABtn'
-import '../styles/qblock.css';
+import '../styles/css/qblock.css';
 
 export default function QBlock(props) {
     const { all_answers, category, correct_answer, difficulty, id, incorrect_answers, question, selected, type, handleClick, quizOver } = props;

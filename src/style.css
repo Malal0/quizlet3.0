@@ -10,7 +10,7 @@
 :root {
     --width: calc(100% - 40px);
     --main--bg: #E5E8F5;
-    --main--c: #293264;
+    --main--c: #a8c97d;
     --button--bg: #4D5B9E;
 }
 
@@ -23,12 +23,28 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+.app {
+    background-color: orange;
+    background-image: url('https://pivvr.com/wp-content/uploads/2023/10/pivvr_bg_2_gif.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #FFF;
+}
+
+.blur {
+    backdrop-filter: blur(10px);
+}
+
 .quizpage {
     padding-block: 2em;
 }
 
+.title {
+    color: var(--main--c);
+}
+
 .main-btn {
-    background-color: var(--button--bg);
+    /* background-color: hsla(108, 43%, 39%, .6); */
     border: none;
     border-radius: .5em;
     color: hsl(0, 0%, 94%);
@@ -38,11 +54,14 @@ body {
     letter-spacing: .05em;
     margin: auto;
     padding: 1em 2em;
+
+    background-color: rgba(94, 94, 13, .6);
+    border: 2px solid var(--main--c);
+    color: var(--main--c);
 }
 
 .main-btn:hover {
-    background-color: hsl(230, 34%, 40%);
-    color: #FFF;
+    background-color: rgba(94, 94, 13, .8);
 }
 
 .results {

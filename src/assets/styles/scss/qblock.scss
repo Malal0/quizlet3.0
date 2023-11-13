@@ -19,17 +19,20 @@
                 pointer-events: none;
 
                 button {
-                    background-color: transparent;
-                    border: 2px solid var(--main--c);
+                    background-color: hsla(2, 73%, 20%, 0.6);
+                    border-color: var(--main--c);
                     border-radius: .5em;
+                    color: var(--main--c);
                     padding: .25em 1em;
                     pointer-events: all;
                     text-align: center;
                     cursor: pointer;
                     width: 100%;
+                    font-size: 1.25em;
+                    font-weight: 900;
 
                     &:hover {
-                        background-color: #FFF;
+                        background-color: #ffffff21;
                         filter: contrast(.9);
                     }
 
@@ -38,8 +41,9 @@
                     }
 
                     &.selected {
-                        background-color: #D6DBF5;
-                        border-color: #D6DBF5;
+                        background-color: hsla(60, 76%, 21%, 0.6);
+                        border: 2px solid var(--main--c);
+                        color: hsl(35, 92%, 54%);
                     }
 
                     &:disabled {
@@ -47,14 +51,17 @@
                         color: #8F94AF;
 
                         &.selected {
-                            background-color: #94D7A2;
-                            border-color: #94D7A2;
-                            color: var(--main--c);
+                            background-color: hsla(133, 64%, 71%, .2);
+                            border-color: hsl(133, 64%, 71%);
+                            color: hsl(133, 64%, 71%);
 
                             &.incorrect {
-                                background-color: #F8BCBC;
-                                border-color: #F8BCBC;
-                                color: #8F94AF;
+                                // background-color: #F8BCBC;
+                                // border-color: #F8BCBC;
+                                // color: #8F94AF;
+                                background-color: hsla(0, 100%, 60%, .2);
+                                border-color: #ff3232;
+                                color: #ff3232;
                             }
                         }
                     }
